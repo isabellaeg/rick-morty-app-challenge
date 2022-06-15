@@ -6,23 +6,16 @@ const Episode = ({episode}) => {
 
     const [episodes, setEpisodes] = useState()
 
-    const getEpisodeData = async () => {
-        try {
+    useEffect(()=> {
+
+        const getEpisodeData = async () => {
             const data = await axios(episode).then(data => data.data)
             setEpisodes(data)
-            console.log(episodes)
-        } 
-        catch (err) {
-            if (err.response) {
-                console.log(err)
-            }
+            .catch(error => console.log(error)) 
         }
         
-    }
-
-    useEffect(()=> {
         getEpisodeData()
-        console.log(episode)
+        
     }, [episode])
 
     return (

@@ -6,7 +6,7 @@ import { FaSkull, FaLaugh, FaUser, FaOptinMonster} from 'react-icons/fa';
 
 const CharacterCard = ({character, list}) => {
 
-    const {selected, setSelected} = useContext(CharactersContext)
+    const {setSelected} = useContext(CharactersContext)
 
     const [active, setActive] = useState(false)
 
@@ -25,9 +25,9 @@ const CharacterCard = ({character, list}) => {
             <StyledImage src={character.image}/>
             <h3>{character.name}</h3>
             <StyledDetails>
-                {character.species == "Alien" ? <FaOptinMonster/> : <FaUser/>}
+                {character.species === "Alien" ? <FaOptinMonster/> : <FaUser/>}
                 <StyledSpan>{character.species}</StyledSpan>
-                {character.status == "Alive" ? <FaLaugh/> : <FaSkull/>}
+                {character.status === "Alive" ? <FaLaugh/> : <FaSkull/>}
                 <StyledSpan>{character.status}</StyledSpan>
             </StyledDetails>
         </StyledWrapper>

@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { StyledList, StyledWrapper } from "./CharacterList.styled";
 import CharacterCard from '../CharacterCard/CharacterCard';
@@ -13,19 +13,21 @@ const CharacterList = ({list}) => {
     const [prevPageUrl, setPrevPageUrl] = useState()
     const [loading, setLoading] = useState(true)
 
-    const getCharacters = async () => {
-        const url = currentUrl
-        const data = await axios(url).then(data => data.data)
-        
-        setCharacters(data.results)
-        setLoading(false)
-        setPages(data.info.pages)
-        setNextPageUrl(data.info.next);
-        setPrevPageUrl(data.info.prev);
-    }
+    
 
     useEffect(() => {
         setLoading(true)
+        const getCharacters = async () => {
+            const url = currentUrl
+            const data = await axios(url).then(data => data.data)
+            
+            setCharacters(data.results)
+            setLoading(false)
+            setPages(data.info.pages)
+            setNextPageUrl(data.info.next);
+            setPrevPageUrl(data.info.prev);
+        }
+        
         getCharacters()
 
     }, [currentUrl])
@@ -42,8 +44,6 @@ const CharacterList = ({list}) => {
         }
         if (loading) return "Loading..."
         const characterList = characters.map(char => <CharacterCard key={char.id} character={char} list={list}/>)
-
-        
 
     return (
         <StyledWrapper>

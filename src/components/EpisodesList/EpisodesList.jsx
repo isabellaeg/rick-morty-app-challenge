@@ -9,18 +9,7 @@ const EpisodesList = ({title, character}) => {
     const [episodes, setEpisodes] = useState([]);
     const url = 'https://rickandmortyapi.com/api/character'
 
-    const getEpisodes = async () => {
-        try {
-            const data = await axios(`${url}/${character}`).then(data => data.data)
-            data.length !== 2 ? setEpisodes(data.episode) : filterEpisodes(data);
-        }
-        catch (err) {
-            if (err.response) {
-                console.log(err)
-            }
-        }
-        
-    }
+    
 
     const filterEpisodes = (character) => {
         const episodeChar1 = character[0].episode;
@@ -30,6 +19,15 @@ const EpisodesList = ({title, character}) => {
     }  
 
     useEffect(() => {
+
+        const getEpisodes = async () => {
+            const data = await axios(`${url}/${character}`).then(data => data.data)
+            .catch (error => console.log(error))
+            
+            data.length !== 2 ? setEpisodes(data.episode) : filterEpisodes(data);
+            
+        }
+
         getEpisodes()
     }, [character])
 
