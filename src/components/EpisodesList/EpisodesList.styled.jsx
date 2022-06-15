@@ -8,3 +8,8 @@ export const StyledList = styled.ul`
     text-decoration: none;
 
 `;
+
+export const StyledTitle = styled.h2`
+    font-family: 'Schwifty';
+    font-size: 30px;
+`;

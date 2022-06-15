@@ -33,3 +33,7 @@ export const StyledSpan = styled.span`
     justify-content: space-between;
     margin: 7px;
 `;
+
+export const StyledH3 = styled.h3`
+    font-family: 'Schwifty';
+`;

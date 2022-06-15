@@ -1,8 +1,9 @@
 import React from "react";
+import { StyledTitle } from "../Header/Header.styled";
 
 const Title = ({title}) => {
     return (
-        <h2>{title}</h2>
+        <StyledTitle>{title}</StyledTitle>
     )
 }
 

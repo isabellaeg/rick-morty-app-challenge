@@ -1,3 +1,9 @@
 .App {
   text-align: center;
 }
+
+@font-face {
+  font-family: "Schwifty";
+  src: local("get_schwifty"),
+  url("./Ricky-and-Morty/get_schwifty.ttf") format("truetype");
+}

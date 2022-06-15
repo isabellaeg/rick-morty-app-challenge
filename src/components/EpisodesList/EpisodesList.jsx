@@ -1,4 +1,4 @@
-import { StyledList } from "./EpisodesList.styled"
+import { StyledList, StyledTitle } from "./EpisodesList.styled"
 import { useEffect, useState } from 'react';
 import axios from 'axios'
 import Episode from "../Episode/Episode";
@@ -33,7 +33,7 @@ const EpisodesList = ({title, character}) => {
 
     return (
         <StyledList>
-            <h1>{title}</h1>
+            <StyledTitle>{title}</StyledTitle>
             {episodes ? (
                 episodes.map((ep) => (
                     <Episode episode={ep}/>

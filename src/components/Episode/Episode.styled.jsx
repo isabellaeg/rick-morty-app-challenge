@@ -6,4 +6,10 @@ export const StyledContainer = styled.div`
     margin-bottom: 8px;
     font-weight: 500;
 
+    div {
+        span {
+            margin-right: 5px;
+        }
+    }
+
 `;

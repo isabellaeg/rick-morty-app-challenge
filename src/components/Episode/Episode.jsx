@@ -13,15 +13,19 @@ const Episode = ({episode}) => {
             setEpisodes(data)
             .catch(error => console.log(error)) 
         }
-        
+
         getEpisodeData()
         
     }, [episode])
 
     return (
         <StyledContainer>
-            <span>{episodes?.name}</span>
-            <span>{episodes?.episode}</span>
+            <div> 
+                <span>{episodes?.episode}</span>
+                <span>{episodes?.name}</span>
+            </div>
+            
+            <span>{episodes?.air_date}</span>
         </StyledContainer>
     )
 }

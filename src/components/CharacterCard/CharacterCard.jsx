@@ -1,6 +1,6 @@
-import { useContext, useState } from "react";
+import { useContext  } from "react";
 import CharactersContext from "../../providers/CharactersContext";
-import { StyledWrapper, StyledImage, StyledDetails, StyledSpan } from "./CharacterCard.styled";
+import { StyledWrapper, StyledImage, StyledDetails, StyledSpan, StyledH3 } from "./CharacterCard.styled";
 import { FaSkull, FaLaugh, FaUser, FaOptinMonster} from 'react-icons/fa';
 
 
@@ -8,22 +8,22 @@ const CharacterCard = ({character, list}) => {
 
     const {setSelected} = useContext(CharactersContext)
 
-    const [active, setActive] = useState(false)
+    
 
     const handleClick = () => {
         if (list === 1) {setSelected((char) => ({...char, char1: character.id}))
-        setActive(!active)
+        
         } 
         else {
             setSelected((char) => ({...char, char2: character.id}))
-            setActive(!active)
+            
         }
         
     }
     return (
-        <StyledWrapper onClick={handleClick} active={active}>
+        <StyledWrapper onClick={handleClick}>
             <StyledImage src={character.image}/>
-            <h3>{character.name}</h3>
+            <StyledH3>{character.name}</StyledH3>
             <StyledDetails>
                 {character.species === "Alien" ? <FaOptinMonster/> : <FaUser/>}
                 <StyledSpan>{character.species}</StyledSpan>
